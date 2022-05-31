@@ -53,7 +53,7 @@
   isHome: true,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2022-05-30 21:25:29'
+  postUpdate: '2022-05-31 13:04:16'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -142,7 +142,123 @@
       }
     }
     detectApple()
-    })(window)</script><link rel="stylesheet" href="/css/iconfont.css"><link rel="stylesheet" href="css/mycss.css"><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/head.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">40</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">5</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('/img/background.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">BugDog的起点</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">BugDog的起点</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://space.bilibili.com/24177058" target="_blank" title="BiliBili"><i class="iconfont icon-bilibili-line"></i></a><a class="social-icon" href="https://space.bilibili.com/24177058" target="_blank" title="BiliBili"><i class="iconfont icon-weibo"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2022/04/20/AC%E8%87%AA%E5%8A%A8%E6%9C%BA/" title="AC自动机">     <img class="post_bg" src="https://pic1.xuehuaimg.com/proxy/https://cdn.jsdelivr.net/gh/harvey-Yin/drawing-bed@master/algorithm.jfif" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="AC自动机"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/04/20/AC%E8%87%AA%E5%8A%A8%E6%9C%BA/" title="AC自动机">AC自动机</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-04-20T10:12:26.000Z" title="发表于 2022-04-20 18:12:26">2022-04-20</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%AE%97%E6%B3%95/">算法</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E7%9F%A5%E8%AF%86%E9%9A%BE%E7%82%B9/">知识难点</a></span></div><div class="content">AC自动机=Trie树 + KMP
+    })(window)</script><link rel="stylesheet" href="/css/iconfont.css"><link rel="stylesheet" href="css/mycss.css"><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/head.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">40</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">5</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('/img/background.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">BugDog的起点</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">BugDog的起点</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://space.bilibili.com/24177058" target="_blank" title="BiliBili"><i class="iconfont icon-bilibili-line"></i></a><a class="social-icon" href="https://space.bilibili.com/24177058" target="_blank" title="BiliBili"><i class="iconfont icon-weibo"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2022/04/20/AC%E8%87%AA%E5%8A%A8%E6%9C%BA/" title="AC自动机">     <img class="post_bg" src="https://pic1.xuehuaimg.com/proxy/https://cdn.jsdelivr.net/gh/harvey-Yin/drawing-bed@master/algorithm.jfif" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="AC自动机"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/04/20/AC%E8%87%AA%E5%8A%A8%E6%9C%BA/" title="AC自动机">AC自动机</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-04-20T10:12:26.000Z" title="发表于 2022-04-20 18:12:26">2022-04-20</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%AE%97%E6%B3%95/">算法</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E7%9F%A5%E8%AF%86%E9%9A%BE%E7%82%B9/">知识难点</a></span></div><div class="content">AC自动机=Trie树 + KMP
 理论分析首先我们回忆一下Trie树，它可以存放多个单词，这些单词之间有时候会有一些重复的部分，为了减少重复的判断，我们就可以将这些重复记录下来，这个记录的方式其实和KMP的概念是一样的。
 我们举个例子，比方说我们有she、he、her、say四个单词，我们想在一段很长的文字里面找到这些单词，比方说shyshershr，里面出现了she、he、her三个单词。
 如果只是简单的一遍一遍的找，效率太低了，我们可以观察到当我们找到she的时候，he的前缀以及her的前缀都被找到了。所以如果我们的Trie树里面有一个信息，让我们在确定she存在时，可以直接比较后面是不是r，得到是否存在her这个单词，我们的效率就大大提升了。
@@ -164,8 +280,8 @@
 其中，标量对向量求导，得到的是行向量
 向量相互求导，得到矩阵
 
-范数$L_1$范数
-∥x∥_1=∑_{i=1}^n|x_i|$L_2$范数，就是欧几里得距离
+范数范数
+∥x∥_1=∑_{i=1}^n|x_i|范数，就是欧几里得距离
 ∥x∥_2=\sqrt {∑_{i=1}^nx^2_i}概率统计最大似然估计所有概率的乘积，使其最大，也就是导数为零。
 信息论熵核心问题：熵是干嘛的？怎么求熵？
 熵是衡量物体不确定度的一个指标。是人为定义的。
@@ -173,13 +289,13 @@
 
 对n个等概率结果的试验，H是n的单调上升函数
 一个试验分成相继的两个试验时，未分之前的H是分步之后H的加权和
-H是概率$p(A_i)$的连续函数
+H是概率的连续函数
 
 关于不确定度的直觉对于是否中靶这件事：直觉上是甲中靶的更让人吃惊
 考虑一种情况：突然有一次乙不中靶了，这件事不是更让人吃惊吗？
 但是我们要从整体的角度上去考虑，或者说应当考虑均值这种描述物体整体情况的统计量。
 根据公式2：
-H(p_1,p_2,p_3)=H(p_1,p_2+p_3)+(p_2+p_3)H({p_2 \over ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2022/03/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-week03/" title="机器学习笔记-week03">     <img class="post_bg" src="https://pic1.xuehuaimg.com/proxy/https://cdn.jsdelivr.net/gh/harvey-Yin/drawing-bed@master/image-20220128213317472.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="机器学习笔记-week03"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/03/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-week03/" title="机器学习笔记-week03">机器学习笔记-week03</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-03-28T07:45:02.000Z" title="发表于 2022-03-28 15:45:02">2022-03-28</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/">知识总结</a></span></div><div class="content">ResNet更复杂的层数不一定能更接近最优解，但是对于嵌套函数，可以保证更复杂的解更接近最优解
+H(p_1,p_2,p_3)=H(p_1,p_2+p_3)+(p_2+p_3)H({p_2 \over p_2+p_3},{p_3\ove ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2022/03/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-week03/" title="机器学习笔记-week03">     <img class="post_bg" src="https://pic1.xuehuaimg.com/proxy/https://cdn.jsdelivr.net/gh/harvey-Yin/drawing-bed@master/image-20220128213317472.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="机器学习笔记-week03"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/03/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-week03/" title="机器学习笔记-week03">机器学习笔记-week03</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-03-28T07:45:02.000Z" title="发表于 2022-03-28 15:45:02">2022-03-28</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/">知识总结</a></span></div><div class="content">ResNet更复杂的层数不一定能更接近最优解，但是对于嵌套函数，可以保证更复杂的解更接近最优解
 
 在构建神经网络的过程中，如果层数过深，会因为梯度消失或者梯度爆炸的原因，导致错误率上升
 ResNet的亮点：
@@ -189,10 +305,10 @@ ResNet的亮点：
 使用Batch Normalization加速训练
 
 residual模块residual模块是相加，GoogLeNet是拼接
-左图虚线框中的部分需要直接拟合出该映射f(x)，而右图虚线框中的部分则需要拟合出残差映射$f(x)−x$。
+左图虚线框中的部分需要直接拟合出该映射f(x)，而右图虚线框中的部分则需要拟合出残差映射。
 结构分析：在每个Conv的最开始，有一个虚线部分（虚线残差结构），这部分是对矩阵进行扩展，之后的实线部分都是简单的卷积操作
 批量规范化训练深层神经网络是十分困难的，特别是在较短的时间内使他们收敛更加棘手。 所以可以采用批量规范化（batch normalization）
-Batch Normalization 原理我们在图像预处理过程中通常会对图像进行标准化处理，这样能够加速网络的收敛，如下图所示，对于Conv1来说输入的就是满足某一分布的特征矩阵，但对于Conv2而言输入的feature map就不一定满 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2022/03/09/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-week02/" title="机器学习笔记-week02">     <img class="post_bg" src="https://pic1.xuehuaimg.com/proxy/https://cdn.jsdelivr.net/gh/harvey-Yin/drawing-bed@master/image-20220128213317472.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="机器学习笔记-week02"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/03/09/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-week02/" title="机器学习笔记-week02">机器学习笔记-week02</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-03-09T08:51:19.000Z" title="发表于 2022-03-09 16:51:19">2022-03-09</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/">知识总结</a></span></div><div class="content">深度学习三部曲
+Batch Normalization 原理我们在图像预处理过程中通常会对图像进行标准化处理，这样能够加速网络的收敛，如下图所示，对于Conv1来说输入的就是满足某一分布的特征矩阵，但对于Conv2而言输入的feature map就不一定满足某一分布规律了 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2022/03/09/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-week02/" title="机器学习笔记-week02">     <img class="post_bg" src="https://pic1.xuehuaimg.com/proxy/https://cdn.jsdelivr.net/gh/harvey-Yin/drawing-bed@master/image-20220128213317472.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="机器学习笔记-week02"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/03/09/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-week02/" title="机器学习笔记-week02">机器学习笔记-week02</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-03-09T08:51:19.000Z" title="发表于 2022-03-09 16:51:19">2022-03-09</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/">知识总结</a></span></div><div class="content">深度学习三部曲
 搭建神经网络结构
 找到一个合适的损失函数
 找到一个合适的优化函数，更新参数（反向传播（BP），随机梯度下降（SGD））
@@ -243,7 +359,7 @@ w^∗,b^∗= \underset{w,b}{argmin} L(w,b).卷积从一维卷积到多维卷积�
             </div>
             <ul class="card-category-list" id="aside-cat-list">
             <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/python/"><span class="card-category-list-name">python</span><span class="card-category-list-count">8</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%A4%A7%E5%AD%A6%E7%89%A9%E7%90%86/"><span class="card-category-list-name">大学物理</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%95%B0%E5%AD%A6/"><span class="card-category-list-name">数学</span><span class="card-category-list-count">6</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"><span class="card-category-list-name">机器学习</span><span class="card-category-list-count">5</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/"><span class="card-category-list-name">离散数学</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%AE%97%E6%B3%95/"><span class="card-category-list-name">算法</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E5%9F%BA%E7%A1%80/"><span class="card-category-list-name">计算机系统基础</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/"><span class="card-category-list-name">计算机组成原理</span><span class="card-category-list-count">1</span></a></li>
-            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/%E5%90%84%E7%A7%8D%E6%83%B3%E6%B3%95/" style="font-size: 1.4em; color: #99a5b6">各种想法</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/" style="font-size: 1.5em; color: #99a9bf">知识总结</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E7%90%86%E8%A7%A3/" style="font-size: 1.1em; color: #999">知识理解</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E9%9A%BE%E7%82%B9/" style="font-size: 1.3em; color: #99a1ac">知识难点</a> <a href="/tags/%E8%AF%BB%E5%90%8E%E6%84%9F/" style="font-size: 1.2em; color: #999da3">读后感</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/05/"><span class="card-archive-list-date">五月 2022</span><span class="card-archive-list-count">9</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/04/"><span class="card-archive-list-date">四月 2022</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/03/"><span class="card-archive-list-date">三月 2022</span><span class="card-archive-list-count">5</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/02/"><span class="card-archive-list-date">二月 2022</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/01/"><span class="card-archive-list-date">一月 2022</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/12/"><span class="card-archive-list-date">十二月 2021</span><span class="card-archive-list-count">8</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/11/"><span class="card-archive-list-date">十一月 2021</span><span class="card-archive-list-count">8</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">40</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2022-05-30T13:25:29.561Z"></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By Harvey Yin</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><script>function subtitleType () {
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/%E5%90%84%E7%A7%8D%E6%83%B3%E6%B3%95/" style="font-size: 1.4em; color: #99a5b6">各种想法</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/" style="font-size: 1.5em; color: #99a9bf">知识总结</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E7%90%86%E8%A7%A3/" style="font-size: 1.1em; color: #999">知识理解</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E9%9A%BE%E7%82%B9/" style="font-size: 1.3em; color: #99a1ac">知识难点</a> <a href="/tags/%E8%AF%BB%E5%90%8E%E6%84%9F/" style="font-size: 1.2em; color: #999da3">读后感</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/05/"><span class="card-archive-list-date">五月 2022</span><span class="card-archive-list-count">9</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/04/"><span class="card-archive-list-date">四月 2022</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/03/"><span class="card-archive-list-date">三月 2022</span><span class="card-archive-list-count">5</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/02/"><span class="card-archive-list-date">二月 2022</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/01/"><span class="card-archive-list-date">一月 2022</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/12/"><span class="card-archive-list-date">十二月 2021</span><span class="card-archive-list-count">8</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/11/"><span class="card-archive-list-date">十一月 2021</span><span class="card-archive-list-count">8</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">40</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2022-05-31T05:04:16.627Z"></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By Harvey Yin</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><script>function subtitleType () {
   if (true) { 
     var typed = new Typed("#subtitle", {
       strings: "想在时间长河之中，留下一些自己的痕迹".split(","),
