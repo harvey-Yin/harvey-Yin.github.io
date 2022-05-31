@@ -1,0 +1,173 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>纪念一次大型博客修复 | BugDog的起点</title><meta name="keywords" content="各种想法"><meta name="author" content="Harvey Yin"><meta name="copyright" content="Harvey Yin"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="referrer" content="no-referrer"><meta name="description" content="顺便记录一下项目发展的几个重要节点 21.11.24 建站咯 21.11.29 配置了新域名 22.04.11 修复图片无法正常显示的问题，重新开始发文章 22.05.22 续费域名 22.05.30 换了github的图床 这里先讲讲22年4月份的时候图片无法显示的问题，是因为gitee在3月份的时候在图床上面加了隐私锁，不能直接访问了，后面在配置文件里面加了一行，就可以正常加载了。 然后就是5">
+<meta property="og:type" content="article">
+<meta property="og:title" content="纪念一次大型博客修复">
+<meta property="og:url" content="http://example.com/2022/05/31/%E7%BA%AA%E5%BF%B5%E4%B8%80%E6%AC%A1%E5%A4%A7%E5%9E%8B%E5%8D%9A%E5%AE%A2%E4%BF%AE%E5%A4%8D/index.html">
+<meta property="og:site_name" content="BugDog的起点">
+<meta property="og:description" content="顺便记录一下项目发展的几个重要节点 21.11.24 建站咯 21.11.29 配置了新域名 22.04.11 修复图片无法正常显示的问题，重新开始发文章 22.05.22 续费域名 22.05.30 换了github的图床 这里先讲讲22年4月份的时候图片无法显示的问题，是因为gitee在3月份的时候在图床上面加了隐私锁，不能直接访问了，后面在配置文件里面加了一行，就可以正常加载了。 然后就是5">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pic1.xuehuaimg.com/proxy/https://cdn.jsdelivr.net/gh/harvey-Yin/drawing-bed@master/22-5-31-record-debug.jpeg">
+<meta property="article:published_time" content="2022-05-31T08:55:29.000Z">
+<meta property="article:modified_time" content="2022-05-31T09:35:15.580Z">
+<meta property="article:author" content="Harvey Yin">
+<meta property="article:tag" content="各种想法">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pic1.xuehuaimg.com/proxy/https://cdn.jsdelivr.net/gh/harvey-Yin/drawing-bed@master/22-5-31-record-debug.jpeg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2022/05/31/%E7%BA%AA%E5%BF%B5%E4%B8%80%E6%AC%A1%E5%A4%A7%E5%9E%8B%E5%8D%9A%E5%AE%A2%E4%BF%AE%E5%A4%8D/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://pic1.xuehuaimg.com/proxy/https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://pic1.xuehuaimg.com/proxy/https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '纪念一次大型博客修复',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2022-05-31 17:35:15'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="css/mycss.css"><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/head.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">43</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">5</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://pic1.xuehuaimg.com/proxy/https://cdn.jsdelivr.net/gh/harvey-Yin/drawing-bed@master/22-5-31-record-debug.jpeg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">BugDog的起点</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">纪念一次大型博客修复</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-05-31T08:55:29.000Z" title="发表于 2022-05-31 16:55:29">2022-05-31</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-05-31T09:35:15.580Z" title="更新于 2022-05-31 17:35:15">2022-05-31</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="纪念一次大型博客修复"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>顺便记录一下项目发展的几个重要节点</p>
+<p>21.11.24 建站咯</p>
+<p>21.11.29 配置了新域名</p>
+<p>22.04.11 修复图片无法正常显示的问题，重新开始发文章</p>
+<p>22.05.22 续费域名</p>
+<p>22.05.30 换了github的图床</p>
+<p>这里先讲讲22年4月份的时候图片无法显示的问题，是因为gitee在3月份的时候在图床上面加了隐私锁，不能直接访问了，后面在配置文件里面加了一行，就可以正常加载了。</p>
+<p>然后就是5月gitee直接封了图床，整的我一周多没发新的博客。一开始的解决方案是放到七牛云，但是七牛云需要备案，而我的域名是在腾讯云买的，而腾讯云备案需要买云服务器，后面就放弃这条路了。</p>
+<p>然后我就干脆直接用github当图床了，但是最主要的问题是访问速度慢。所以可以借助第一个工具，cdn域名，也就是相当于多中转一次，有一个开源的cdn加速网站jsDeliver，但是他在21年底的时候在中国备案被取消了。</p>
+<p>所以又诞生了第二个代理，在jsDeliver前面再加一层代理。再次套娃，终于解决了访问速度的问题。</p>
+<p>后面新建github仓库，借助picgo自动上传，借助vscode批量替换图片地址。（顺手把picgo配置了一下，保持和原来一样的方便）</p>
+<p>然后typora炸了，重新装了一个。然后因为我前几天的时候清理电脑注册表把gitbash从右键栏删掉了。于是又重新装了一次git，然后运行的时候又是因为清理电脑，nodejs用不了了，于是又重装了一次。（阿巴阿巴）然后因为重装了nodejs，于是又要重新装一遍显示数学公式的库。</p>
+<p>后面发现整体加载速度太慢，卸载了一个在npm中没有用的math。但是之前一直有问题，就是加载菜单栏太慢，这也严重影响了整体的速度。最后终于在看了一堆博客，试了无数次F12查看网络之后，找到了加载慢的那几个链接。最后也加上代理就好啦。（听上去非常轻松，实际上搞了好久）</p>
+<p>中间大概看了这些内容吧：</p>
+<p>Hexo渲染数学公式</p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/7ab21c7f0674">在Hexo中渲染MathJax数学公式 - 简书 (jianshu.com)</a></p>
+<p>图床更换</p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/5b58ecce6443">解决hexo引入图床，手机和web不显示图片的问题 - 简书 (jianshu.com)</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/488325185">gitee图床挂了，教你一键替换图床！！ - 知乎 (zhihu.com)</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/outman_1921/article/details/115569466">(1条消息) 使用jsDelivr的CDN加速github图床_李梨同学丶的博客-CSDN博客</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.wangdu.site/course/755.html">教程：jsDelivr 备案吊销后，网站资源该如何加速呢？ - 文武科技柜 (wangdu.site)</a></p>
+<p>加载慢</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44676935/article/details/107440479">Hexo博客因图标失效导致加载过慢（icarus主题）_GaoYang-笔迹的博客-CSDN博客</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Harvey Yin</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2022/05/31/%E7%BA%AA%E5%BF%B5%E4%B8%80%E6%AC%A1%E5%A4%A7%E5%9E%8B%E5%8D%9A%E5%AE%A2%E4%BF%AE%E5%A4%8D/">http://example.com/2022/05/31/%E7%BA%AA%E5%BF%B5%E4%B8%80%E6%AC%A1%E5%A4%A7%E5%9E%8B%E5%8D%9A%E5%AE%A2%E4%BF%AE%E5%A4%8D/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">BugDog的起点</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%90%84%E7%A7%8D%E6%83%B3%E6%B3%95/">各种想法</a></div><div class="post_share"><div class="social-share" data-image="https://pic1.xuehuaimg.com/proxy/https://cdn.jsdelivr.net/gh/harvey-Yin/drawing-bed@master/22-5-31-record-debug.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/05/31/%E6%9D%82%E8%AE%B03/"><img class="prev-cover" src="https://pic1.xuehuaimg.com/proxy/https://cdn.jsdelivr.net/gh/harvey-Yin/drawing-bed@master/22-5-31-record3.jpg" onerror="onerror=null;src='/img/404.png'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">杂记3</div></div></a></div><div class="next-post pull-right"><a href="/2022/05/14/%E3%80%8A%E5%85%A8%E7%90%83%E7%A7%91%E6%8A%80%E9%80%9A%E5%8F%B2%E3%80%8B/"><img class="next-cover" src="https://pic1.xuehuaimg.com/proxy/https://cdn.jsdelivr.net/gh/harvey-Yin/drawing-bed@master/20220514164845.png" onerror="onerror=null;src='/img/404.png'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">《全球科技通史》</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2021/11/29/%E4%BB%8E%E6%9E%81%E5%A4%A7%E5%85%83%E5%88%B0%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/" title="从极大元到贪心算法"><img class="cover" src="https://pic1.xuehuaimg.com/proxy/https://cdn.jsdelivr.net/gh/harvey-Yin/drawing-bed@master/1.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-11-29</div><div class="title">从极大元到贪心算法</div></div></a></div><div><a href="/2021/11/26/%E6%88%91%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/" title="我的学习路线"><img class="cover" src="/img/2021.11/learning.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-11-26</div><div class="title">我的学习路线</div></div></a></div><div><a href="/2021/12/10/%E6%9D%82%E8%AE%B01/" title="杂记1"><img class="cover" src="https://pic1.xuehuaimg.com/proxy/https://cdn.jsdelivr.net/gh/harvey-Yin/drawing-bed@master/Untitled.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-12-10</div><div class="title">杂记1</div></div></a></div><div><a href="/2021/12/17/%E6%9D%82%E8%AE%B02/" title="杂记2"><img class="cover" src="https://pic1.xuehuaimg.com/proxy/https://cdn.jsdelivr.net/gh/harvey-Yin/drawing-bed@master/21-12-17-jounary2.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-12-17</div><div class="title">杂记2</div></div></a></div><div><a href="/2022/05/31/%E6%9D%82%E8%AE%B03/" title="杂记3"><img class="cover" src="https://pic1.xuehuaimg.com/proxy/https://cdn.jsdelivr.net/gh/harvey-Yin/drawing-bed@master/22-5-31-record3.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-05-31</div><div class="title">杂记3</div></div></a></div><div><a href="/2021/11/29/%E8%B4%B9%E6%9B%BC%E5%AD%A6%E4%B9%A0%E6%B3%95/" title="费曼学习法"><img class="cover" src="https://pic1.xuehuaimg.com/proxy/https://cdn.jsdelivr.net/gh/harvey-Yin/drawing-bed@master/211119-fm.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-11-29</div><div class="title">费曼学习法</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/head.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Harvey Yin</div><div class="author-info__description">虽偶有轻风细雨，但总归晴天朗照</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">43</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">5</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/harvey-Yin"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://space.bilibili.com/24177058" target="_blank" title="BiliBili"><i class="iconfont icon-bilibili-line"></i></a><a class="social-icon" href="https://blog.csdn.net/lier_bujian?type=blog" target="_blank" title="Weibo"><i class="iconfont icon-weibo"></i></a></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/05/31/%E5%9B%BE%E4%B9%A6%E6%8E%A8%E8%8D%90/" title="图书推荐"><img src="https://pic1.xuehuaimg.com/proxy/https://cdn.jsdelivr.net/gh/harvey-Yin/drawing-bed@master/22-5-31-book.jpg" onerror="this.onerror=null;this.src='/img/404.png'" alt="图书推荐"/></a><div class="content"><a class="title" href="/2022/05/31/%E5%9B%BE%E4%B9%A6%E6%8E%A8%E8%8D%90/" title="图书推荐">图书推荐</a><time datetime="2022-05-31T09:24:40.000Z" title="发表于 2022-05-31 17:24:40">2022-05-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/05/31/%E6%9D%82%E8%AE%B03/" title="杂记3"><img src="https://pic1.xuehuaimg.com/proxy/https://cdn.jsdelivr.net/gh/harvey-Yin/drawing-bed@master/22-5-31-record3.jpg" onerror="this.onerror=null;this.src='/img/404.png'" alt="杂记3"/></a><div class="content"><a class="title" href="/2022/05/31/%E6%9D%82%E8%AE%B03/" title="杂记3">杂记3</a><time datetime="2022-05-31T09:14:08.000Z" title="发表于 2022-05-31 17:14:08">2022-05-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/05/31/%E7%BA%AA%E5%BF%B5%E4%B8%80%E6%AC%A1%E5%A4%A7%E5%9E%8B%E5%8D%9A%E5%AE%A2%E4%BF%AE%E5%A4%8D/" title="纪念一次大型博客修复"><img src="https://pic1.xuehuaimg.com/proxy/https://cdn.jsdelivr.net/gh/harvey-Yin/drawing-bed@master/22-5-31-record-debug.jpeg" onerror="this.onerror=null;this.src='/img/404.png'" alt="纪念一次大型博客修复"/></a><div class="content"><a class="title" href="/2022/05/31/%E7%BA%AA%E5%BF%B5%E4%B8%80%E6%AC%A1%E5%A4%A7%E5%9E%8B%E5%8D%9A%E5%AE%A2%E4%BF%AE%E5%A4%8D/" title="纪念一次大型博客修复">纪念一次大型博客修复</a><time datetime="2022-05-31T08:55:29.000Z" title="发表于 2022-05-31 16:55:29">2022-05-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/05/14/%E3%80%8A%E5%85%A8%E7%90%83%E7%A7%91%E6%8A%80%E9%80%9A%E5%8F%B2%E3%80%8B/" title="《全球科技通史》"><img src="https://pic1.xuehuaimg.com/proxy/https://cdn.jsdelivr.net/gh/harvey-Yin/drawing-bed@master/20220514164845.png" onerror="this.onerror=null;this.src='/img/404.png'" alt="《全球科技通史》"/></a><div class="content"><a class="title" href="/2022/05/14/%E3%80%8A%E5%85%A8%E7%90%83%E7%A7%91%E6%8A%80%E9%80%9A%E5%8F%B2%E3%80%8B/" title="《全球科技通史》">《全球科技通史》</a><time datetime="2022-05-14T08:48:07.000Z" title="发表于 2022-05-14 16:48:07">2022-05-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/05/14/python%E6%95%B0%E5%AD%A6%E7%BB%9F%E8%AE%A1-%E6%80%BB%E7%BB%93%E9%A1%B9%E7%9B%AE/" title="python数学统计-总结项目"><img src="https://pic1.xuehuaimg.com/proxy/https://cdn.jsdelivr.net/gh/harvey-Yin/drawing-bed@master/20220509135811.png" onerror="this.onerror=null;this.src='/img/404.png'" alt="python数学统计-总结项目"/></a><div class="content"><a class="title" href="/2022/05/14/python%E6%95%B0%E5%AD%A6%E7%BB%9F%E8%AE%A1-%E6%80%BB%E7%BB%93%E9%A1%B9%E7%9B%AE/" title="python数学统计-总结项目">python数学统计-总结项目</a><time datetime="2022-05-14T08:21:53.000Z" title="发表于 2022-05-14 16:21:53">2022-05-14</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By Harvey Yin</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script id="canvas_nest" defer="defer" color="255,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://pic1.xuehuaimg.com/proxy/https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-nest.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
