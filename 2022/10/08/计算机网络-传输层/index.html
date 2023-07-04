@@ -1,0 +1,371 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>计算机网络-传输层 | BugDog的起点</title><meta name="keywords" content="知识总结"><meta name="author" content="Harvey Yin"><meta name="copyright" content="Harvey Yin"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="referrer" content="no-referrer"><meta name="description" content="第三章概述TCP、UDP提供进程到进程的服务 IP提供主机到主机的服务 网络层向上提供的服务可能乱序、而运输层保证可靠。 说人话就是，我们的TCP将数据分组之后，就交给网络层去传输了。在庞大的网络结构中，每个数据包可能遇到不同的情况，最后到达目标主机的时间不一样。我们的网络层不考虑顺序不对的问题，而TCP层会将这些数据包重新变为有序（后面的可靠数据传输会详细讲解这部分） 多路复用、解复用多路复用就">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机网络-传输层">
+<meta property="og:url" content="http://example.com/2022/10/08/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E4%BC%A0%E8%BE%93%E5%B1%82/index.html">
+<meta property="og:site_name" content="BugDog的起点">
+<meta property="og:description" content="第三章概述TCP、UDP提供进程到进程的服务 IP提供主机到主机的服务 网络层向上提供的服务可能乱序、而运输层保证可靠。 说人话就是，我们的TCP将数据分组之后，就交给网络层去传输了。在庞大的网络结构中，每个数据包可能遇到不同的情况，最后到达目标主机的时间不一样。我们的网络层不考虑顺序不对的问题，而TCP层会将这些数据包重新变为有序（后面的可靠数据传输会详细讲解这部分） 多路复用、解复用多路复用就">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pic1.xuehuaimg.com/proxy/https://cdn.jsdelivr.net/gh/harvey-Yin/drawing-bed@master/20221005103141.png">
+<meta property="article:published_time" content="2022-10-08T01:02:31.000Z">
+<meta property="article:modified_time" content="2023-07-04T07:14:00.631Z">
+<meta property="article:author" content="Harvey Yin">
+<meta property="article:tag" content="知识总结">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pic1.xuehuaimg.com/proxy/https://cdn.jsdelivr.net/gh/harvey-Yin/drawing-bed@master/20221005103141.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2022/10/08/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E4%BC%A0%E8%BE%93%E5%B1%82/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '计算机网络-传输层',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-07-04 15:14:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.2"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/head.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">62</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://pic1.xuehuaimg.com/proxy/https://cdn.jsdelivr.net/gh/harvey-Yin/drawing-bed@master/20221005103141.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">BugDog的起点</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">计算机网络-传输层</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-10-08T01:02:31.000Z" title="发表于 2022-10-08 09:02:31">2022-10-08</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-07-04T07:14:00.631Z" title="更新于 2023-07-04 15:14:00">2023-07-04</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="计算机网络-传输层"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="第三章"><a href="#第三章" class="headerlink" title="第三章"></a>第三章</h1><h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>TCP、UDP提供进程到进程的服务</p>
+<p>IP提供主机到主机的服务</p>
+<p>网络层向上提供的服务可能乱序、而运输层保证可靠。</p>
+<p>说人话就是，我们的TCP将数据分组之后，就交给网络层去传输了。在庞大的网络结构中，每个数据包可能遇到不同的情况，最后到达目标主机的时间不一样。我们的网络层不考虑顺序不对的问题，而TCP层会将这些数据包重新变为有序（后面的可靠数据传输会详细讲解这部分）</p>
+<h1 id="多路复用、解复用"><a href="#多路复用、解复用" class="headerlink" title="多路复用、解复用"></a>多路复用、解复用</h1><p>多路复用就是一个主机有多个进程，可以创建多个套接字。</p>
+<p>应用层传下来，加上socket，TCP封装原端口、目标端口</p>
+<p>到这里我们先停一停，之前学应用层的时候没有涉及到一个问题，就是服务的问题，应用层在网络层次中并不提供服务，但是从传输层开始我们需要向上层提供服务了。换句话说，上层应用层需要调用传输层的函数（API）。</p>
+<h1 id="UDP"><a href="#UDP" class="headerlink" title="UDP"></a>UDP</h1><p>这里直接先介绍UDP了，因为UDP比较简单，只有一个校验和。</p>
+<p>UDP首部占8B</p>
+<p><img src="https://pic1.xuehuaimg.com/proxy/https://cdn.jsdelivr.net/gh/harvey-Yin/drawing-bed@master/202307041500695.png" alt="Untitled 0"></p>
+<p>UDP校验和校验整个数据报（还要加上伪首部），而IP层只校验首部。</p>
+<p>（UDP用校验和、IPv4也是校验和，因为软件实现校验和比较简单，后面我们会看到在链路层使用了别的方式进行校验。）</p>
+<h1 id="可靠数据传输rdt"><a href="#可靠数据传输rdt" class="headerlink" title="可靠数据传输rdt"></a>可靠数据传输rdt</h1><h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>如何保证我们的数据可靠的传递到目标呢？（不增不减不错）</p>
+<p>1.0版本：直接传送过去就行</p>
+<p>2.0版本：具有差错校验（校验和）、停等协议（ACK、NAK的返回）、重传（发送端收到NAK后，会进行重传）。</p>
+<p>2.1版本：我们对数据分组之后，发送到目标主机。目标主机成功接收到数据后返回ACK。这个ACK一定能送到对方那里吗？显然是不一定的。所以我们怎么知道下一个包是新的包还是一个重传？这时候就需要分组序号，采用01两个序号区分两个相邻的数据包。目标主机返回对应的01序号的ACK。</p>
+<p>3.0版本：丢包</p>
+<p>强调一下丢包问题，我们之前2.0版本的问题是知道了对方有没有正确的收到这个包，可是如果我们的包根本就没到对方主机，对方就不会返回ACK之类的信息了。这个时候我们需要计时，如果超过一定的时间还没有接收到正确的ACK，就重新传这个包。</p>
+<p>这里整理一下整个过程，主机发送第一个数据包，序号为0，然后开始计时。接着可能出现三种情况，</p>
+<p>第一种，目标主机成功接收信息，返回ACK，源主机成功接收ACK。然后源主机继续发送第二个数据包，序号为1，计时器重置，后续又可能出现三种情况。</p>
+<p>第二种，目标主机接收到了信息，但是信息有误，返回NAK，源主机成功接收NAK，然后重传第一个数据包。</p>
+<p>第三种，在传输过程中，数据包丢失 或 ACK、NAK丢失，源主机在设定的时间内没有收到ACK或者NAK，判定为丢包，重传该分组。</p>
+<p>有限状态机：</p>
+<p><img src="https://pic1.xuehuaimg.com/proxy/https://cdn.jsdelivr.net/gh/harvey-Yin/drawing-bed@master/202307041459799.png" alt="Untitled"></p>
+<p>多次传输</p>
+<p><img src="https://pic1.xuehuaimg.com/proxy/https://cdn.jsdelivr.net/gh/harvey-Yin/drawing-bed@master/202307041459827.png" alt="Untitled"></p>
+<p>可以看出来，这样传完一个之后一直等，效率太低了。</p>
+<h2 id="流水线可靠数据传输"><a href="#流水线可靠数据传输" class="headerlink" title="流水线可靠数据传输"></a>流水线可靠数据传输</h2><p>流水线很好，但是要解决出现差错之后的重传问题。两种方法：回退N步、选择重传。</p>
+<h3 id="回退N步"><a href="#回退N步" class="headerlink" title="回退N步"></a><strong>回退N步</strong></h3><p>就是每次一起传N组，如果有问题就重新再传这N组。没问题就传后面的N组。</p>
+<p>里面的问题，我们流水线不停的传，然后收到了ACK1，可是迟迟没有等到ACK2，这个时候我们可能已经传了很多组了，但是为了保证可靠传输，我们只能重新从第二组开始传，直到收到了ACK2才能不重传。这个过程中会出现很多数据明明正确的到达了，但是却被丢弃了。</p>
+<h3 id="选择重传："><a href="#选择重传：" class="headerlink" title="选择重传："></a><strong>选择重传：</strong></h3><p><img src="../../../../desktop/第三章 b4755fe7c01247b591817d72eb291a2a/Untitled 3.png" alt="Untitled"></p>
+<p><img src="../../../../desktop/第三章 b4755fe7c01247b591817d72eb291a2a/Untitled 4.png" alt="Untitled"></p>
+<p>接收方窗口内的已收到的失序数据包就先存起来，然后等待我们真正需要的顺序的数据包。</p>
+<p>发送方窗口内的已收到ACK的数据包就不用再发了，剩下的等ACK，超时了就重发。</p>
+<p><img src="../../../../desktop/第三章 b4755fe7c01247b591817d72eb291a2a/Untitled 5.png" alt="Untitled"></p>
+<h1 id="TCP"><a href="#TCP" class="headerlink" title="TCP"></a>TCP</h1><p>综合之前所说的种种，我们终于能讲解TCP可靠数据传输了。</p>
+<p>首先TCP是面向连接的，两个进制之间需要先相互“握手”，而且是端对端的，只能在单个对单个。</p>
+<p>然后，注意，两台主机之间的网络元素（包括路由器、交换机、中继器）没有为该连接分配任何缓存和变量。</p>
+<h2 id="报文结构"><a href="#报文结构" class="headerlink" title="报文结构"></a>报文结构</h2><p>经典的以4B为基本单位。最少需要5*4B = 20B，最多15*4B = 60B</p>
+<p><img src="https://pic1.xuehuaimg.com/proxy/https://cdn.jsdelivr.net/gh/harvey-Yin/drawing-bed@master/202307041459834.png" alt="Untitled"></p>
+<p><img src="https://pic1.xuehuaimg.com/proxy/https://cdn.jsdelivr.net/gh/harvey-Yin/drawing-bed@master/202307041459360.png" alt="Untitled"></p>
+<h3 id="序号与确认号："><a href="#序号与确认号：" class="headerlink" title="序号与确认号："></a>序号与确认号：</h3><p>确认号是一方期待的下一个数据包，比方说主机A已经收到了主机B发送的0-535的数据包了，A期待收到的下一个就是536了，发送给B的报文里面的确认号就是536了。</p>
+<p>假设A已经收到了B发送的0-535和700-800的数据包了，但是中间缺少的数据包不知道去哪了。所以A发送给B的报文里面的确认号仍是536。</p>
+<h2 id="三次握手："><a href="#三次握手：" class="headerlink" title="三次握手："></a>三次握手：</h2><p>注意SYN</p>
+<p><img src="../../../../desktop/第三章 b4755fe7c01247b591817d72eb291a2a/Untitled 8.png" alt="Untitled"></p>
+<h2 id="四次挥手："><a href="#四次挥手：" class="headerlink" title="四次挥手："></a>四次挥手：</h2><p><img src="https://pic1.xuehuaimg.com/proxy/https://cdn.jsdelivr.net/gh/harvey-Yin/drawing-bed@master/202307041459493.png" alt="Untitled"></p>
+<h2 id="拥塞控制"><a href="#拥塞控制" class="headerlink" title="拥塞控制"></a>拥塞控制</h2><p>首先区分一下两种拥塞：超时、冗余ACK（三个以上的冗余，也就是收到第四个相同的ACK时，判定为发生了拥塞）</p>
+<p>慢启动：一开始发1个MSS，发现不拥塞。第二次发2个MSS，又发现不拥塞。第三次发4个，第四次发8个···</p>
+<p>拥塞避免：当到达阈值后，每次增大一个MSS</p>
+<p>快速恢复：</p>
+<p>TCP Tahoe不具有快速恢复的功能，在出现冗余3个ACK之后，会恢复到慢启动，同时以6个MSS（超时最大值的一半）作为阈值。</p>
+<p>TCP Reno具有快速恢复的功能，在出现冗余3个ACK之后，会将拥塞窗口的值设为9MSS（冗余ACK的最大值）。</p>
+<p>另外，无论哪种TCP协议，如果出现超时，则恢复到慢启动。</p>
+<p><img src="https://pic1.xuehuaimg.com/proxy/https://cdn.jsdelivr.net/gh/harvey-Yin/drawing-bed@master/202307041459890.png" alt="Untitled"></p>
+<p>状态机</p>
+<p><img src="https://pic1.xuehuaimg.com/proxy/https://cdn.jsdelivr.net/gh/harvey-Yin/drawing-bed@master/202307041459895.png" alt="Untitled"></p>
+<p>第一次学不建议直接看状态机，会看晕的。先系统的学习一遍，然后回过头来看状态机，就发现很清晰了。</p>
+<h1 id="公平性"><a href="#公平性" class="headerlink" title="公平性"></a>公平性</h1><p>TCP老老实实拥塞控制，UDP啥都不管，那么UDP就可以肆意的占用流量，这显然不公平，需要措施来控制UDP的流量。</p>
+<p>基于TCP连接的应用可以使用多个并行连接，假设均分这些带宽，那么一个创建了更多TCP连接的应用就会占到更多的带宽。这也不公平。</p>
+<p>这种公平性是我们需要考虑的。</p>
+<h1 id="回看"><a href="#回看" class="headerlink" title="回看"></a>回看</h1><p>再回头看这一章的时候，结合整个网络层次和socket套接字编程。</p>
+<p>其实可以看到，实现到这一层之后，我们就可以愉快的传输数据了。应用层其实和数据传输的关系比较小。</p>
+<p>当然了，这里说的数据传输是指原始的数据传输。我们想要传输文件、加密传输这些实现都放在了应用层来实现。</p>
+<p>学到后面，链路层的滑动窗口，CSMA/CA的ACK帧，这些东西放在链路层讲真的很难理解。但是在传输层讲清楚之后，就非常好理解了。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Harvey Yin</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2022/10/08/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E4%BC%A0%E8%BE%93%E5%B1%82/">http://example.com/2022/10/08/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E4%BC%A0%E8%BE%93%E5%B1%82/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">BugDog的起点</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/">知识总结</a></div><div class="post_share"><div class="social-share" data-image="https://pic1.xuehuaimg.com/proxy/https://cdn.jsdelivr.net/gh/harvey-Yin/drawing-bed@master/20221005103141.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://pic1.xuehuaimg.com/proxy/https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://pic1.xuehuaimg.com/proxy/https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/10/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E7%BD%91%E7%BB%9C%E5%B1%82/"><img class="prev-cover" src="https://pic1.xuehuaimg.com/proxy/https://cdn.jsdelivr.net/gh/harvey-Yin/drawing-bed@master/20221005103141.png" onerror="onerror=null;src='/img/404.png'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">计算机网络-网络层</div></div></a></div><div class="next-post pull-right"><a href="/2022/10/04/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%BA%94%E7%94%A8%E5%B1%82/"><img class="next-cover" src="https://pic1.xuehuaimg.com/proxy/https://cdn.jsdelivr.net/gh/harvey-Yin/drawing-bed@master/20221005103141.png" onerror="onerror=null;src='/img/404.png'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">计算机网络-应用层</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022/05/09/python%E5%A4%8D%E6%9D%82%E8%AF%AD%E6%B3%95/" title="python复杂语法"><img class="cover" src="https://pic1.xuehuaimg.com/proxy/https://cdn.jsdelivr.net/gh/harvey-Yin/drawing-bed@master/20220509135811.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-05-09</div><div class="title">python复杂语法</div></div></a></div><div><a href="/2023/06/20/LSTM%E9%A2%84%E6%B5%8B%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%EF%BC%88%E7%90%86%E8%AE%BA%E4%B8%8E%E5%AE%9E%E8%B7%B5%EF%BC%89/" title="LSTM预测时间序列（理论与实践）"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-06-20</div><div class="title">LSTM预测时间序列（理论与实践）</div></div></a></div><div><a href="/2022/05/09/python%E5%B8%B8%E8%A7%81%E5%87%BD%E6%95%B0/" title="python常见函数"><img class="cover" src="https://pic1.xuehuaimg.com/proxy/https://cdn.jsdelivr.net/gh/harvey-Yin/drawing-bed@master/20220509135811.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-05-09</div><div class="title">python常见函数</div></div></a></div><div><a href="/2022/05/12/python%E5%B8%B8%E7%94%A8%E5%BA%93/" title="python常用库"><img class="cover" src="https://pic1.xuehuaimg.com/proxy/https://cdn.jsdelivr.net/gh/harvey-Yin/drawing-bed@master/20220509135811.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-05-12</div><div class="title">python常用库</div></div></a></div><div><a href="/2022/05/10/python%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E7%BB%93%E6%9E%84/" title="python异常处理结构"><img class="cover" src="https://pic1.xuehuaimg.com/proxy/https://cdn.jsdelivr.net/gh/harvey-Yin/drawing-bed@master/20220509135811.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-05-10</div><div class="title">python异常处理结构</div></div></a></div><div><a href="/2022/05/12/python%E6%95%B0%E5%AD%A6%E7%BB%9F%E8%AE%A1%E4%B8%89%E9%83%A8%E6%9B%B2/" title="python数学统计三部曲"><img class="cover" src="https://pic1.xuehuaimg.com/proxy/https://cdn.jsdelivr.net/gh/harvey-Yin/drawing-bed@master/20220509135811.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-05-12</div><div class="title">python数学统计三部曲</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/head.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Harvey Yin</div><div class="author-info__description">虽偶有轻风细雨，但总归晴天朗照</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">62</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/harvey-Yin"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://space.bilibili.com/24177058" target="_blank" title="BiliBili"><i class="iconfont icon-bilibili-line"></i></a><a class="social-icon" href="https://blog.csdn.net/lier_bujian?type=blog" target="_blank" title="Weibo"><i class="iconfont icon-weibo"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0"><span class="toc-number">1.</span> <span class="toc-text">第三章</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-number">2.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8%E3%80%81%E8%A7%A3%E5%A4%8D%E7%94%A8"><span class="toc-number">3.</span> <span class="toc-text">多路复用、解复用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#UDP"><span class="toc-number">4.</span> <span class="toc-text">UDP</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%AF%E9%9D%A0%E6%95%B0%E6%8D%AE%E4%BC%A0%E8%BE%93rdt"><span class="toc-number">5.</span> <span class="toc-text">可靠数据传输rdt</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%9F%E7%90%86"><span class="toc-number">5.1.</span> <span class="toc-text">原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%81%E6%B0%B4%E7%BA%BF%E5%8F%AF%E9%9D%A0%E6%95%B0%E6%8D%AE%E4%BC%A0%E8%BE%93"><span class="toc-number">5.2.</span> <span class="toc-text">流水线可靠数据传输</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9E%E9%80%80N%E6%AD%A5"><span class="toc-number">5.2.1.</span> <span class="toc-text">回退N步</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%89%E6%8B%A9%E9%87%8D%E4%BC%A0%EF%BC%9A"><span class="toc-number">5.2.2.</span> <span class="toc-text">选择重传：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#TCP"><span class="toc-number">6.</span> <span class="toc-text">TCP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%A5%E6%96%87%E7%BB%93%E6%9E%84"><span class="toc-number">6.1.</span> <span class="toc-text">报文结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BA%8F%E5%8F%B7%E4%B8%8E%E7%A1%AE%E8%AE%A4%E5%8F%B7%EF%BC%9A"><span class="toc-number">6.1.1.</span> <span class="toc-text">序号与确认号：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%EF%BC%9A"><span class="toc-number">6.2.</span> <span class="toc-text">三次握手：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B%EF%BC%9A"><span class="toc-number">6.3.</span> <span class="toc-text">四次挥手：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8B%A5%E5%A1%9E%E6%8E%A7%E5%88%B6"><span class="toc-number">6.4.</span> <span class="toc-text">拥塞控制</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%AC%E5%B9%B3%E6%80%A7"><span class="toc-number">7.</span> <span class="toc-text">公平性</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9E%E7%9C%8B"><span class="toc-number">8.</span> <span class="toc-text">回看</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/06/20/LSTM%E9%A2%84%E6%B5%8B%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%EF%BC%88%E7%90%86%E8%AE%BA%E4%B8%8E%E5%AE%9E%E8%B7%B5%EF%BC%89/" title="LSTM预测时间序列（理论与实践）"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.png'" alt="LSTM预测时间序列（理论与实践）"/></a><div class="content"><a class="title" href="/2023/06/20/LSTM%E9%A2%84%E6%B5%8B%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%EF%BC%88%E7%90%86%E8%AE%BA%E4%B8%8E%E5%AE%9E%E8%B7%B5%EF%BC%89/" title="LSTM预测时间序列（理论与实践）">LSTM预测时间序列（理论与实践）</a><time datetime="2023-06-20T08:09:26.000Z" title="发表于 2023-06-20 16:09:26">2023-06-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/06/09/%E5%A4%A7%E6%95%B0%E6%8D%AE%E8%BD%A8%E8%BF%B9%E5%A4%84%E7%90%86%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E6%96%B9%E6%B3%95/" title="大数据轨迹处理中的一些方法"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.png'" alt="大数据轨迹处理中的一些方法"/></a><div class="content"><a class="title" href="/2023/06/09/%E5%A4%A7%E6%95%B0%E6%8D%AE%E8%BD%A8%E8%BF%B9%E5%A4%84%E7%90%86%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E6%96%B9%E6%B3%95/" title="大数据轨迹处理中的一些方法">大数据轨迹处理中的一些方法</a><time datetime="2023-06-09T08:08:51.000Z" title="发表于 2023-06-09 16:08:51">2023-06-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/04/04/IDLE%E8%B0%83%E8%AF%95%E6%8C%87%E5%8D%97/" title="IDLE调试指南"><img src="https://pic1.xuehuaimg.com/proxy/https://cdn.jsdelivr.net/gh/harvey-Yin/drawing-bed@master/20220509135811.png" onerror="this.onerror=null;this.src='/img/404.png'" alt="IDLE调试指南"/></a><div class="content"><a class="title" href="/2023/04/04/IDLE%E8%B0%83%E8%AF%95%E6%8C%87%E5%8D%97/" title="IDLE调试指南">IDLE调试指南</a><time datetime="2023-04-04T11:50:55.000Z" title="发表于 2023-04-04 19:50:55">2023-04-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/03/28/python%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B%E5%9F%BA%E7%A1%80/" title="python算法竞赛基础"><img src="https://pic1.xuehuaimg.com/proxy/https://cdn.jsdelivr.net/gh/harvey-Yin/drawing-bed@master/20220509135811.png" onerror="this.onerror=null;this.src='/img/404.png'" alt="python算法竞赛基础"/></a><div class="content"><a class="title" href="/2023/03/28/python%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B%E5%9F%BA%E7%A1%80/" title="python算法竞赛基础">python算法竞赛基础</a><time datetime="2023-03-28T11:51:05.000Z" title="发表于 2023-03-28 19:51:05">2023-03-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/16/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%B8%83%E7%AB%A0-%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86/" title="操作系统第七章-磁盘管理"><img src="https://pic1.xuehuaimg.com/proxy/https://cdn.jsdelivr.net/gh/harvey-Yin/drawing-bed@master/20221119103940.png" onerror="this.onerror=null;this.src='/img/404.png'" alt="操作系统第七章-磁盘管理"/></a><div class="content"><a class="title" href="/2022/11/16/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%B8%83%E7%AB%A0-%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86/" title="操作系统第七章-磁盘管理">操作系统第七章-磁盘管理</a><time datetime="2022-11-16T08:24:18.000Z" title="发表于 2022-11-16 16:24:18">2022-11-16</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Harvey Yin</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.2
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        insertScript: [200, () => {
+          document.querySelectorAll('mjx-container:not\([display]\)').forEach(node => {
+            const target = node.parentNode
+            if (target.nodeName.toLowerCase() === 'li') {
+              target.parentNode.classList.add('has-jax')
+            } else {
+              target.classList.add('has-jax')
+            }
+          });
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://pic1.xuehuaimg.com/proxy/https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script></div><script id="canvas_nest" defer="defer" color="255,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://pic1.xuehuaimg.com/proxy/https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-nest.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
